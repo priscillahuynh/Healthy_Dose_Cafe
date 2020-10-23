@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/' => 'sessions#welcome'
   resources :categories
   resources :orders
   resources :line_items
