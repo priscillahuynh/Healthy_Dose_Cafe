@@ -1,0 +1,11 @@
+<h1>Add new product to menu</h1>
+
+<%= form_for @product do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+
+  <%= f.submit "Add product"%>
+<% end %>
