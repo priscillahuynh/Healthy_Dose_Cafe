@@ -13,6 +13,11 @@ class UsersController < ApplicationController
         end
     end
 
+    def show
+        @user = User.find_by_id(params[:id])
+        redirect_to user_path(@user)
+    end
+
     private
 
     def user_params
