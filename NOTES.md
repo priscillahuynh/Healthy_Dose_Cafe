@@ -40,3 +40,11 @@ Has_many :line_items
 Total: decimal
 User_id :integer
 ------------------------------------------------------
+ROUTES
+
+get '/' 
+welcome page
+    sign up or login links
+
+once logged in...
+resource categories view links to menu categories
