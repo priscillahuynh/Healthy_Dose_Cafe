@@ -10,10 +10,10 @@
   </head>
    <div> 
       <% if logged_in? %>
-        <%= link_to 'Profile', user_path(@user) %>
-        <%= link_to 'Log Out', logout_path %>
+        <%= link_to 'Profile', user_path(current_user.id) %>
+        <%= link_to 'Log Out', logout_path, method: :delete %>
       <% end %>
-    </div>
+  </div>
   <body>
     <%= yield %>
   </body>
