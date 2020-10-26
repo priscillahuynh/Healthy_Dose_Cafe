@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   has_many :line_items
   has_many :carts, through: :line_items
 
-  validates: category_name, presence: true
+  validates :category_name, presence: true
 
   def category_name=(name)
     self.category = Category.find_or_create_by(name: name)
@@ -12,4 +12,5 @@ class Product < ApplicationRecord
   def category_name
      self.category ? self.category.name : nil
   end
+
 end
