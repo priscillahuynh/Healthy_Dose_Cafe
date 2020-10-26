@@ -16,6 +16,6 @@
 
   <h3>"Select from existing category"</h3>
   <br>
-  <%= f.collection_select :category_name, Category.all, :name, :name %>
+  <%= f.collection_select :category_name, Category.all, :name, :name, {:prompt => 'Select'} %>
   <%= f.submit "Add product"%>
 <% end %>
