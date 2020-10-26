@@ -4,9 +4,12 @@ class ProductsController < ApplicationController
     end
 
     def create
-        @product = Product.new(product_params)
-        raise params.inspect
-
+        @category = Category.find_or_create_by(name: params[:product][:category_name])
+        Product.create({
+            name: params[:product][:name],
+            price: params[:product][:price],
+            category_name: params[:product][:category_name]
+        })
     end
 
     private
