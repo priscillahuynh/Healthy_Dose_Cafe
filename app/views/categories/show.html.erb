@@ -1,0 +1,6 @@
+<h2><%= @category.name %> </h2>
+
+<% @category.products.each do |p| %>
+<%= p.name %>, $<%= p.price %> <br>
+<% end %>
+
