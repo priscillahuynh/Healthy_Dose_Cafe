@@ -46,5 +46,27 @@ get '/'
 welcome page
     sign up or login links
 
-once logged in...
-resource categories view links to menu categories
+once logged in, user is directed to menu page (categories#show) '/menu'
+    Juices --> link to individual category to view list of products (category_products_path)  '/menu/juices' 
+    Breakfast 
+    Lunch etc
+     
+'/menu/juices ('/menu/:category_id/products') // products#show
+    Product name, price, and image --> link to category_product_path ('/menu/juices/products/:id')
+                                        display product, name, price, descrption and image
+                                        button to 'add item to cart' 
+                                            (-update cart with 1 of selected item
+                                             -alert user item added to cart
+                                             -re-render product show page)
+                                        IF ADMIN 
+                                        "Add new product" to 'Juices' new_category_product_path --> '/menu/juices/
+                                                            products/new 
+                                        "Edit product" edit_category_product_path '/menu/juices/products/2/edit
+                                            render form with existing product name, price, description, image 
+                                                button to "update product" 
+                                                    --> redirect to product show page
+                                                or "delete product"
+                                                    --> redirect to menu/juices/1
+
+
+
