@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
     def new
-        @product = Product.new
+        @category = Category.find_by_id(params[:category_id])
+        @product = @category.products.build
     end
 
     def create
@@ -10,7 +11,7 @@ class ProductsController < ApplicationController
             price: params[:product][:price],
             category_name: params[:product][:category_name]
         })
-        redirect_to product_path(@product)
+        redirect_to category_product_path(@category)
     end
 
     def show
