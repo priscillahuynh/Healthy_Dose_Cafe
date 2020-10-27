@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   delete '/logout' => 'sessions#destroy'
   
-  resources :categories
+  resources :categories, :path => "menu" do 
+    resources :products
+  end
   resources :orders
   resources :line_items
   resources :carts
