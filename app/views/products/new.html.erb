@@ -1,4 +1,4 @@
-<h1>Add new product to menu</h1>
+<h1>Add new product to <%=@category.name%></h1>
 
 <%= form_for @product do |f| %>
   <%= f.label :name %>
@@ -9,13 +9,14 @@
   <%= f.text_field :price %>
   <br>
   <br>
-  <%= f.label :category_name %>
-  <%= f.text_field :category_name %>
-  <br>
-  <br>
+  <%= f.hidden_field :category_id%>
+  <%# <%= f.label :category_name %>
+  <%# <%= f.text_field :category_name %> 
+  <%# <br> %>
+  <%# <br> %>
 
-  <h3>"Select from existing category"</h3>
-  <br>
-  <%= f.collection_select :category_name, Category.all, :name, :name, {:prompt => 'Select'} %>
-  <%= f.submit "Add product"%>
+  <%# <h3>"Select from existing category"</h3> %>
+  <%# <br> %>
+  <%# <%= f.collection_select :category_name, Category.all, :name, :name, {:prompt => 'Select'} %>
+  <%= f.submit "Add product" %>
 <% end %>
