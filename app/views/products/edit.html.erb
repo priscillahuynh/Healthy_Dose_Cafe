@@ -1,0 +1,22 @@
+
+<br>
+<br>
+<%= form_for @product do |f| %>
+<% if params[:category_id] %>
+    <%= f.hidden_field :category_id %>
+<% else %>
+    <%= f.label :category_id, "Select a Category"%>
+    <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
+<% end %>
+<br>
+<br>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<br>
+<br>
+<%= f.label :price %>
+<%= f.text_field :price %>
+<br>
+<br>
+  <%= f.submit "Update product" %>
+<% end %>
