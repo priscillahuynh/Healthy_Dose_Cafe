@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
     def new
-        if @category = Category.find_by_id(params[:category_id])
+        if find_category
         @product = @category.products.build
         else 
             @product = Product.new
@@ -15,15 +15,24 @@ class ProductsController < ApplicationController
     end
 
     def index
-        @category = Category.find_by_id(params[:category_id])
+        find_category
     end
 
     def show
-        find_product
+        find_product    
     end
 
     def edit
         find_product
+    end
+
+    def update 
+        find_product
+        if @product.update(product_params)
+        redirect_to product_path(@product)
+        else 
+        render  :new
+        end
     end
 
     private
@@ -34,6 +43,10 @@ class ProductsController < ApplicationController
 
     def find_product
         @product = Product.find_by_id(params[:id])
+    end
+
+    def find_category
+        @category = Category.find_by_id(params[:category_id])
     end
 
 end
