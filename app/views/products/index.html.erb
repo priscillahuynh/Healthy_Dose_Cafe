@@ -1,3 +1,9 @@
 <h3> <% @category.products.all.each do |p| %> </h3>
-<%= p.name %> $<%= p.price %> <br>
+<%= link_to p.name, product_path(p) %> $<%= p.price %> <br>
 <% end %>
+
+<% if logged_in? && current_user.admin? %>
+    <%= link_to 'Add new product', new_category_product_path(@category) %>
+<% end %>
+
+      
