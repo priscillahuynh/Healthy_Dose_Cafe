@@ -1,7 +1,8 @@
-<h1><%= @product.category_name %> </h1> 
+<h1><%= link_to @product.category_name, category_products_path(@product.category) %> </h1> 
 <p><%= @product.name %> $<%= @product.price %> </p>
 
 <% if logged_in? && current_user.admin? %>
     <%= link_to 'Edit product', edit_product_path(@product) %>
     <%# <%= link_to 'Delete product', new_category_product_path(@category) %> 
 <% end %>
+
