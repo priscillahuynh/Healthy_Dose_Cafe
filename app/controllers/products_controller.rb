@@ -1,17 +1,16 @@
 class ProductsController < ApplicationController
     def new
-        @category = Category.find_by_id(params[:category_id])
+        if @category = Category.find_by_id(params[:category_id])
         @product = @category.products.build
+        else 
+            @product = Product.new
+        end
     end
 
     def create
-        @category = Category.find_by(name: params[:product][:category_name])
-        @product = Product.create({
-            name: params[:product][:name],
-            price: params[:product][:price],
-            category_name: params[:product][:category_name]
-        })
-        redirect_to category_product_path(@category)
+        @category = Category.find_by(id: params[:product][:category_id])
+        @product = @category.products.build(product_params)
+        redirect_to category_products_path(@category)
     end
 
     def show
@@ -20,6 +19,7 @@ class ProductsController < ApplicationController
 
     def index
         @products = Product.all
+        @category = Category.find_by_id(params[:category_id])
     end
 
     private
