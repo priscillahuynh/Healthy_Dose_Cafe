@@ -8,5 +8,5 @@
 <% end %>
 
 <% if logged_in? && current_user.admin? %>
-    <%= link_to 'Add new product', new_category_product_path(@category) %>
+    <%= button_to 'Add new product', new_category_product_path(@category), method: :get %>
 <% end %>
