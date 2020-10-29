@@ -1,9 +1,10 @@
-<h1>MENU</h1>
+<h1>Healthy Dose Cafe</h1>
 <%= flash[:notice] %>
 <br>
 <br>
 <% @categories.each do |c|%>
-<%= link_to c.name, category_products_path(c) %> 
+<%= link_to c.name, category_products_path(c) %> <br>
+<%= link_to "Edit Category", edit_category_path(c)%> </p> 
 <%= button_to "Delete Category", category_path(c), method: :delete %></p> <br>
 <% end %>
 <br>
