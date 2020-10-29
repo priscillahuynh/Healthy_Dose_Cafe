@@ -1,6 +1,8 @@
-<h1>Add new product to <%=@category.name%></h1>
+<h3>Add new product to <%=@category.name%></h3>
 <br>
 <br>
+<%= render '/layouts.errors', locals: {object: @product} %>
+
 <%= form_for @product do |f| %>
 <% if params[:category_id] %>
   <%= f.hidden_field :category_id %>

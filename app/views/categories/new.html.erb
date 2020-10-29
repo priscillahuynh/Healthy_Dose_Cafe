@@ -1,5 +1,6 @@
+<h3>Create A New Category</h3>
 <br>
-<br>
+<%= render '/layouts.errors', locals: {object: @category} %>
 
 <%= form_for @category do |f| %>
   <%= f.label :name %>
