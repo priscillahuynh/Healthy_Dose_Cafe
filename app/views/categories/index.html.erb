@@ -4,8 +4,10 @@
 <br>
 <% @categories.each do |c|%>
 <%= link_to c.name, category_products_path(c) %> <br>
-<%= link_to "Edit Category", edit_category_path(c)%> </p> 
-<%= button_to "Delete Category", category_path(c), method: :delete %></p> <br>
+    <% if logged_in? && current_user.admin? %>
+        <%= link_to "Edit Category Name", edit_category_path(c)%> </p> 
+        <%= button_to "Delete Category", category_path(c), method: :delete %></p> <br>
+    <% end %>
 <% end %>
 <br>
 <% if logged_in? && current_user.admin? %>
