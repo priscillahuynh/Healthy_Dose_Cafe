@@ -27,7 +27,7 @@ class CategoriesController < ApplicationController
     def update
         find_category
         @category.update(params.require(:category).permit(:name))
-        redirect_to category_products_path(@category)
+        redirect_to categories_path, flash: { notice: "Category name successfully updated" }
     end
 
     def destroy
