@@ -35,6 +35,13 @@ class ProductsController < ApplicationController
         end
     end
 
+    def destroy
+        find_product
+        @category = @product.category_id
+        @product.destroy
+        redirect_to category_products_path(@category), flash: { notice: "Product successfully deleted" }
+    end
+
     private
 
     def product_params
