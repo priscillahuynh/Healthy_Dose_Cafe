@@ -69,4 +69,7 @@ once logged in, user is directed to menu page (categories#show) '/menu'
                                                     --> redirect to menu/juices/1
 
 
+To do: 
+-style flash messages
+-add required fields to forms
 
