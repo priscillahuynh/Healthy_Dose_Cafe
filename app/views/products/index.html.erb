@@ -1,7 +1,7 @@
-<h1><%=link_to @category.name, products_path %> </h1> 
+
+<h1><%=@category.name%> </h1> 
 
 <%= flash[:notice] %>
-<br>
 <br>
 <h3> <% @category.products.all.each do |p| %> </h3>
 <%= link_to p.name, product_path(p) %> $<%= p.price %> <br>
@@ -10,6 +10,3 @@
 <% if logged_in? && current_user.admin? %>
     <%= link_to 'Add new product', new_category_product_path(@category) %>
 <% end %>
-
-      category_products GET    /menu/:category_id/products(.:format) products#index
-      category GET    /menu/:id(.:format) category#show
