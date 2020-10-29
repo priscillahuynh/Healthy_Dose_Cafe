@@ -29,7 +29,8 @@ class ProductsController < ApplicationController
     def update 
         find_product
         if @product.update(product_params)
-        redirect_to product_path(@product)
+        @category = @product.category_id
+        redirect_to category_products_path(@category)
         else 
         render  :new
         end
