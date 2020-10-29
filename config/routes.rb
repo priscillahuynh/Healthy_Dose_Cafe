@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   
   resources :products
   resources :categories, :path => "menu" do
-    resources :products, only: [:new, :show, :index]
+    resources :products, only: [:new, :show, :index, :destroy]
   end
   resources :orders
   resources :line_items
