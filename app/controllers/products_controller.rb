@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
     def new
         if find_category
-        @product = @category.products.build
+            @product = @category.products.build
         else 
             @product = Product.new
         end
@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
         @category = Category.find_by(id: params[:product][:category_id])
         @product = @category.products.build(product_params)
         @product.save
-        redirect_to category_products_path(@category)
+        redirect_to category_products_path(@category) 
     end
 
     def index
