@@ -1,10 +1,12 @@
 <h1>MENU</h1>
-
+<%= flash[:notice] %>
+<br>
+<br>
 <% @categories.each do |c|%>
-<%= link_to c.name, category_products_path(c) %> <br>
+<%= link_to c.name, category_products_path(c) %> 
+<%= button_to "Delete Category", category_path(c), method: :delete %></p> <br>
 <% end %>
 <br>
 <% if logged_in? && current_user.admin? %>
     <%= link_to 'Add Category', new_category_path %>
-    <%# <%= link_to 'Delete product', new_category_product_path(@category) %> 
 <% end %>
