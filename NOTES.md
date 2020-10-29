@@ -73,4 +73,7 @@ To do:
 -style flash messages
 -add required fields to forms
 -fix price formatting to show two digits after decimal
+-refactor  
+    -before action in controllers
+    -partials for new and edit views
 
