@@ -1,0 +1,4 @@
+<h3>Items in your cart</h3>
+<% @user.cart.line_items.each do |i| %>
+<%= i.name%>
+<% end %>
