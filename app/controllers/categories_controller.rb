@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
 
     def create 
         @category = Category.new(params.require(:category).permit(:name))
+        @category.name.capitalize!
         if @category.save 
             redirect_to categories_path, flash: { notice: "Category successfully added" }
         else 

@@ -10,8 +10,12 @@ class ProductsController < ApplicationController
     def create
         @category = Category.find_by(id: params[:product][:category_id])
         @product = @category.products.build(product_params)
-        @product.save
-        redirect_to category_products_path(@category) 
+        @product.name.capitalize!
+        if @product.save
+        redirect_to category_products_path(@category), flash: { notice: "Product successfully added" }
+        else 
+            render :new
+        end
     end
 
     def index
@@ -30,7 +34,7 @@ class ProductsController < ApplicationController
         find_product
         if @product.update(product_params)
         @category = @product.category_id
-        redirect_to category_products_path(@category)
+        redirect_to category_products_path(@category), flash: { notice: "Product successfully updated" }
         else 
         render  :new
         end
