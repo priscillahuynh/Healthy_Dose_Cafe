@@ -12,6 +12,7 @@
       <% if logged_in? %>
         <%= link_to 'Profile', user_path(current_user.id) %>
         <%= link_to 'Main Menu', categories_path %>
+        <%= link_to 'View Cart', cart_path(current_user.id) %>
         <%= link_to 'Log Out', logout_path, method: :delete %>
       <% end %>
   </div>
