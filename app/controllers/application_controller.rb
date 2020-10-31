@@ -9,9 +9,5 @@ class ApplicationController < ActionController::Base
         !!session[:user_id]
     end
 
-    def login_required
-        if !logged_in?
-            redirect_to login_path, :notice => "You must be logged in to checkout cart"
-        end
-    end
+    
 end
