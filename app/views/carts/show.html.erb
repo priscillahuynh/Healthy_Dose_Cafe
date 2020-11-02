@@ -1,4 +1,6 @@
 <h3>Items in your cart</h3>
 <% @cart.line_items.each do |line_item| %>
-<%= line_item.product.name %>
+<ul>
+    <li><%= line_item.product.name %> <%= line_item.quantity %> </li>
+</ul>
 <% end %>
