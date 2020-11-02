@@ -1,20 +1,22 @@
-<h3>Items in your cart</h3>
+<h3>Items In Your Cart</h3>
+
 <% if @cart.line_items.empty? %>
     <%= "There are no items in your cart"%>    
 <% else %>
     <% @cart.line_items.each do |line_item| %>
     <ul>
-       <li>
-            <%= line_item.product.name %>: <%= line_item.quantity %> x $<%=line_item.product.price %> =   $<%= line_item.quantity * line_item.product.price %>
-            <br>
-            <% if line_item.special_request %>
-                Special Request: <%= line_item.special_request %>
-            <% end %>
-            <br>
-            <%= link_to " more ", add_line_item_path(:id => line_item), method: :post %>   | 
-            <%= link_to " less ", reduce_line_item_path(:id => line_item), method: :post %>    |    
-            <%= link_to "Remove from Cart", line_item_path(line_item), method: :delete %>
+        <li>
+        <%= line_item.product.name %>: <%= line_item.quantity %> x $<%=line_item.product.price %> =   $<%= line_item.quantity * line_item.product.price %>
+        <br>
+        <% if line_item.special_request %>
+            Special Request: <%= line_item.special_request %>
+        <% end %>
+        <br>
+        <%= link_to " more ", add_line_item_path(:id => line_item), method: :post %>   | 
+        <%= link_to " less ", reduce_line_item_path(:id => line_item), method: :post %>    |    
+        <%= link_to "Remove from Cart", line_item_path(line_item), method: :delete %>
         </li>
     </ul>
     <% end %>
+    Total: $ <%= @cart.sub_total %>
 <% end %>
