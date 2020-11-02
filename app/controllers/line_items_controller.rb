@@ -2,8 +2,8 @@ class LineItemsController < ApplicationController
 
     def create
         chosen_product = Product.find(params[:product_id])
-        if !current_cart.line_items.include?(chosen_product) # FIX THIS!
-            @line_item = current_cart.line_items.find_by(product_id: chosen_product.id) # DO NOT CHANGE THIS LINE
+        if current_cart.products.include?(chosen_product)
+            @line_item = current_cart.line_items.find_by(product_id: chosen_product.id)
             @line_item.quantity += 1
             @line_item.save
         else
