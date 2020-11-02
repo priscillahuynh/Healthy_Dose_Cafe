@@ -4,7 +4,11 @@
 <% else %>
     <% @cart.line_items.each do |line_item| %>
     <ul>
-    <li><%= line_item.product.name %> <%= line_item.quantity %> x $<%=line_item.product.price %> =   $<%= line_item.quantity * line_item.product.price %> </li>
+    <li><%= line_item.product.name %>: <%= line_item.quantity %> x $<%=line_item.product.price %> =   $<%= line_item.quantity * line_item.product.price %><br>
+        <%= link_to " more ", add_line_item_path(:id => line_item), method: :post %>  |
+        <%= link_to " less ", reduce_line_item_path(:id => line_item), method: :post %>
+        </li><br>
+        <%= link_to "Remove from cart", line_item_path(line_item), method: :delete %>
     </ul>
     <% end %>
 <% end %>
