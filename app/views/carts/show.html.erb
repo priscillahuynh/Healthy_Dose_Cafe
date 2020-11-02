@@ -18,5 +18,6 @@
         </li>
     </ul>
     <% end %>
-    Total: $ <%= @cart.sub_total %>
 <% end %>
+    Total: $ <%= @cart.sub_total %><br>
+    <p><%=button_to "Proceed to checkout", orders_path() %></p>
