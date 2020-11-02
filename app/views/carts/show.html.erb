@@ -1,6 +1,10 @@
 <h3>Items in your cart</h3>
-<% @cart.line_items.each do |line_item| %>
-<ul>
-    <li><%= line_item.product.name %> <%= line_item.quantity %> </li>
-</ul>
+<% if @cart.line_items.empty? %>
+    <%= "There are no items in your cart"%>    
+<% else %>
+    <% @cart.line_items.each do |line_item| %>
+    <ul>
+    <li><%= line_item.product.name %> <%= line_item.quantity %> x $<%=line_item.product.price %> =   $<%= line_item.quantity * line_item.product.price %> </li>
+    </ul>
+    <% end %>
 <% end %>
