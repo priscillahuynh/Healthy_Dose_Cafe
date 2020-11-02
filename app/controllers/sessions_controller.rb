@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+    skip_before_action :current_cart
+
     def welcome
     end
 
@@ -9,6 +11,9 @@ class SessionsController < ApplicationController
         @user = User.find_by(username: params[:user][:username])
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
+            cart = Cart.new(user_id: @user.id)
+            cart.save
+            session[:cart_id] = cart.id
             redirect_to categories_path
         else
             flash[:error] = "Invalid username or password"
@@ -18,6 +23,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session.delete(:user_id)
-        redirect_to '/'
+        session.delete(:cart_id)
+        redirect_to '/' 
     end
 end
