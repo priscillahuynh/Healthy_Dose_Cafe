@@ -1,3 +1,8 @@
-<%= @user.username %>
+<h3> Hello <%= @user.username.capitalize! %>! </h3>
 
 <h3>Order History</h3>
+<% @user.orders.each do |order| %>
+    <ul>
+        <li><%= order.created_at.strftime("%b-%d %l:%M %p") %>   |   Total $<%= order.total %> <br></li>
+    </ul>
+<% end %>
