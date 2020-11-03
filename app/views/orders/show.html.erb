@@ -1,0 +1,10 @@
+<br>
+<h3><%= @order.created_at.strftime("%b-%d %l:%M %p")%> </h3>
+<br>
+<% @order.line_items.each do |line_item| %>
+    <%= line_item.product.name %>: <%= line_item.quantity %> x $<%=line_item.product.price %> =   $<%= line_item.quantity * line_item.product.price %>
+    <% if line_item.special_request %>
+         |   Special Request: <%= line_item.special_request %>
+    <% end %> <br>
+<% end %>
+<h4>Total:  $<%= @order.total %> </h4>
