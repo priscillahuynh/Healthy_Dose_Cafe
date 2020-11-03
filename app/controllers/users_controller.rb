@@ -7,9 +7,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save 
             session[:user_id] = @user.id
-            cart = Cart.new(user_id: @user.id)
-            cart.save
-            session[:cart_id] = cart.id
+            set_cart
             redirect_to categories_path, flash: { notice: 'Welcome! ' }
         else
             render :new

@@ -11,9 +11,7 @@ class SessionsController < ApplicationController
         @user = User.find_by(username: params[:user][:username])
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
-            cart = Cart.new(user_id: @user.id)
-            cart.save
-            session[:cart_id] = cart.id
+            set_cart
             redirect_to categories_path
         else
             flash[:error] = "Invalid username or password"

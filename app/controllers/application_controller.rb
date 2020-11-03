@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user, :logged_in?, :current_cart
+    helper_method :current_user, :logged_in?, :current_cart, :set_cart
     before_action :current_cart 
 
     def current_user
@@ -13,4 +13,10 @@ class ApplicationController < ActionController::Base
     def current_cart
         @current_cart = Cart.find(session[:cart_id]) 
     end   
+
+    def set_cart 
+        cart = Cart.new(user_id: @user.id)
+        cart.save
+        session[:cart_id] = cart.id
+    end
 end

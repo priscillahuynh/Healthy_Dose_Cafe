@@ -19,7 +19,8 @@ class OrdersController < ApplicationController
           @order.cart.line_items << item
           item.cart_id = nil 
         end
-        @order.save!
+        @order.save
+        set_cart
         redirect_to '/menu' , flash: { notice: "Order completed. Come again soon" }
     end
 
