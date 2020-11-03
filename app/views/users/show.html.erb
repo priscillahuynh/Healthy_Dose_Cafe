@@ -3,6 +3,7 @@
 <h3>Order History</h3>
 <% @user.orders.each do |order| %>
     <ul>
-        <li><%= order.created_at.strftime("%b-%d %l:%M %p") %>   |   Total $<%= order.total %> <br></li>
+        <li><%= link_to order.created_at.strftime("%b-%d %l:%M %p"), order_path(order) %>   |   Total $<%= order.total %> <br></li>
     </ul>
 <% end %>
+
