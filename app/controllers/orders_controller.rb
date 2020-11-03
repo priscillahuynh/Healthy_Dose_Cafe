@@ -11,16 +11,16 @@ class OrdersController < ApplicationController
     end
 
     def create
-        @order = current_user.orders.build(total: @current_cart.sub_total)
-        @order.save
-        @current_cart.line_items.each do |item|
+        @order = current_user.orders.build(total: current_cart.sub_total)
+        cart = Cart.new(order_id: @order.id, user_id: current_user.id)
+        cart.save 
+        @order.cart = cart
+        current_cart.line_items.each do |item|
           @order.cart.line_items << item
-          item.cart_id = nil
+          item.cart_id = nil 
         end
-        @order.save
-        Cart.destroy(session[:cart_id])
-        session[:cart_id] = nil
-        redirect_to '/'
+        @order.save!
+        redirect_to '/menu' , flash: { notice: "Order completed. Come again soon" }
     end
 
 end
