@@ -13,6 +13,19 @@ class LineItemsController < ApplicationController
             redirect_to product_path(chosen_product), flash: { notice: "Product added to cart" }
     end
 
+    def edit
+      find_line_item
+    end
+
+    def update 
+      find_line_item
+      if @line_item.update(line_item_params)
+      redirect_to cart_path(current_cart.id)
+      else 
+      render  :edit
+      end
+    end
+
     def destroy
         @line_item = LineItem.find(params[:id])
         @line_item.destroy
@@ -35,4 +48,13 @@ class LineItemsController < ApplicationController
         redirect_to cart_path(current_cart.id)
       end
 
+      private 
+
+      def line_item_params
+        params.require(:line_item).permit(:quantity, :special_request, :product_id, :cart_id)
+    end
+
+      def find_line_item
+        @line_item = LineItem.find_by_id(params[:id])
+      end
 end
