@@ -12,6 +12,8 @@ class ProductsController < ApplicationController
         @product = @category.products.build(product_params)
         @product.name.capitalize!
         if @product.save
+            @product.image.purge
+            @product.image.attach(params[:product][:image])
         redirect_to category_products_path(@category), flash: { notice: "Product successfully added" }
         else 
             render :new
@@ -50,7 +52,7 @@ class ProductsController < ApplicationController
     private
 
     def product_params
-        params.require(:product).permit(:name, :price, :category_name, :category_id, :image)
+        params.require(:product).permit(:name, :price, :category_name, :category_id)
     end
 
     def find_product
