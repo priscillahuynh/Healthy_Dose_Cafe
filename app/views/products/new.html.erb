@@ -4,6 +4,10 @@
 <%= render partial: '/layouts/errors', locals: {object: @product} %>
 
 <%= form_for @product do |f| %>
+
+<%= f.label :image %> 
+<%= f.file_field :image %>
+
 <% if params[:category_id] %>
   <%= f.hidden_field :category_id %>
 <% else %>

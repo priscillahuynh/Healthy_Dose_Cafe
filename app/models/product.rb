@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :line_items
   has_many :carts, through: :line_items
+  has_one_attached :image
 
   validates :category_name, presence: true
   validates :name, presence: true

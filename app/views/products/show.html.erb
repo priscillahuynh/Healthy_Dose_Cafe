@@ -3,6 +3,10 @@
 <br>
 <%= flash[:notice] %>
 <br>
+<% if @product.image.attached? %>
+   <%= image_tag url_for(@post.image) %>
+<% end %>
+
 <p><%=button_to "Add to cart", line_items_path(product_id: @product)%></p>
 <br>
 <% if logged_in? && current_user.admin? %>
