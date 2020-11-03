@@ -17,7 +17,8 @@
         <%= link_to "Remove from Cart", line_item_path(line_item), method: :delete %>
         </li>
     </ul>
-    <% end %>
-<% end %>
     Total: $ <%= @cart.sub_total %><br>
     <p><%=button_to "Proceed to checkout", orders_path() %></p>
+    <% end %>
+<% end %>
+    
