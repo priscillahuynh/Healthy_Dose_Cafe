@@ -1,5 +1,5 @@
 class LineItemsController < ApplicationController
-
+  
     def create
         chosen_product = Product.find(params[:product_id])
         if current_cart.products.include?(chosen_product)
