@@ -15,6 +15,7 @@
         <%= link_to " more ", add_line_item_path(:id => line_item), method: :post %>   | 
         <%= link_to " less ", reduce_line_item_path(:id => line_item), method: :post %>    |    
         <%= link_to "Remove from Cart", line_item_path(line_item), method: :delete %>
+        <%= button_to 'Add request', edit_line_item_path(line_item), method: :get %>
         </li>
     </ul>
     <% end %>
