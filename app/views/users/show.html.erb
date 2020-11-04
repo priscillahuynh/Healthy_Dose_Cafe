@@ -7,3 +7,13 @@
     </ul>
 <% end %>
 
+
+<% if @user.admin? %>
+    Most popular product: <% LineItem.most_popular.each do |line_item| %>
+        <% product = Product.all.find_by_id(line_item.product_id) %>
+    <ul>
+        <li><%= product.name %> was purchased <%= line_item.quantity%> times. </li>
+    </ul>
+    <% end %>
+<% end %>
+

@@ -70,9 +70,11 @@ once logged in, user is directed to menu page (categories#show) '/menu'
 
 
 To do: 
+-admin profile view: scope method(s)
 -style flash messages
--fix price formatting to show two digits after decimal
--refactor  
-    -before action in controllers
-    -partials for new and edit views
+-partials for new and edit views
+-add products with images
+-style home page
+-video walkthrough
+-blog post
 

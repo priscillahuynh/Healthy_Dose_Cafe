@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
             @category = @product.category_id
             redirect_to category_products_path(@category), flash: { notice: "Product successfully updated" }
         else 
-            render  :new
+            render  :edit
         end
     end
 

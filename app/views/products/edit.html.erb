@@ -1,6 +1,7 @@
 <h3>Update <%= @product.name %></h3>
 <br>
 <br>
+<%= render partial: '/layouts/errors', locals: {object: @product} %>
 <%= form_for @product do |f| %>
 
 <%= f.label :image %> 

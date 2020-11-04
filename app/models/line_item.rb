@@ -5,4 +5,8 @@ class LineItem < ApplicationRecord
   def total_price
     self.quantity * self.product.price
   end
-end
+
+  def self.most_popular
+    self.order(:quantity)
+  end
+end 
