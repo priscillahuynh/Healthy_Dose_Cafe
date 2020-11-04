@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   delete '/logout' => 'sessions#destroy'
 
+  get '/auth/facebook/callback' => 'sessions#omniauth' 
+
   get '/carts/:id' => "carts#show", as: "cart"
   delete '/carts/:id' => "carts#destroy"
 
