@@ -2,6 +2,10 @@
 <br>
 <br>
 <%= form_for @product do |f| %>
+
+<%= f.label :image %> 
+<%= f.file_field :image %>
+<br>
 <% if params[:category_id] %>
   <%= f.hidden_field :category_id %>
 <% else %>

@@ -35,10 +35,12 @@ class ProductsController < ApplicationController
     def update 
         find_product
         if @product.update(product_params)
-        @category = @product.category_id
-        redirect_to category_products_path(@category), flash: { notice: "Product successfully updated" }
+            @product.image.purge
+            @product.image.attach(params[:product][:image])
+            @category = @product.category_id
+            redirect_to category_products_path(@category), flash: { notice: "Product successfully updated" }
         else 
-        render  :new
+            render  :new
         end
     end
 
