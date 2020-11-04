@@ -4,7 +4,7 @@
 <%= flash[:notice] %>
 <br>
 <% if @product.image.attached? %>
-   <%= image_tag url_for(@post.image) %>
+   <%= image_tag url_for(@product.image), height: 300, width: 300 %>
 <% end %>
 
 <p><%=button_to "Add to cart", line_items_path(product_id: @product)%></p>
