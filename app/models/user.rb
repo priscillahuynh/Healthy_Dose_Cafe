@@ -10,4 +10,9 @@ class User < ApplicationRecord
         u.password = SecureRandom.hex
         end
     end
+
+    def self.highest_paying_customers
+        users = self.joins(:orders).group(:username).sum(:total)
+        users.sort_by {|k,v| v}.reverse.to_h.first(3)
+    end
 end

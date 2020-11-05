@@ -1,19 +1,24 @@
 <h3> Hello <%= @user.username.capitalize! %>! </h3>
 
-<h3>Order History</h3>
-<% @user.orders.each do |order| %>
-    <ul>
-        <li><%= link_to order.created_at.strftime("%b-%d %l:%M %p"), order_path(order) %>   |   Total $<%= order.total %> <br></li>
-    </ul>
-<% end %>
-
-
 <% if @user.admin? %>
-    Most popular product: <% LineItem.most_popular.each do |line_item| %>
-        <% product = Product.all.find_by_id(line_item.product_id) %>
-    <ul>
-        <li><%= product.name %> was purchased <%= line_item.quantity%> times. </li>
-    </ul>
+    <h3>Top 3 most popular products: </h3>
+    <ol> <% Product.top_three_products.each do |product, quantity|  %>
+        <li><%= product.upcase %> was purchased <%= quantity %> times. </li> <br>
+        <% end%>
+    </ol>
+
+    <h3>Highest paying customers:</h3>
+    <ol> <% User.highest_paying_customers.each do |user, total|  %>
+        <li><%= user.upcase %> has spent $<%= total %>. </li> <br>
+        <% end%>
+    </ol>
+
+<%else %>
+    <h3>Order History</h3>
+    <% @user.orders.each do |order| %>
+        <ul>
+            <%= link_to order.created_at.strftime("%b-%d %l:%M %p"), order_path(order) %>   |   Total $<%= order.total %> <br></>
+        </ul>
     <% end %>
 <% end %>
 
