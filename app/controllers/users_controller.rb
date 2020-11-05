@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    skip_before_action :current_cart
+    
     def new
         @user = User.new
     end
