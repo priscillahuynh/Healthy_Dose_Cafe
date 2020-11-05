@@ -6,7 +6,4 @@ class LineItem < ApplicationRecord
     self.quantity * self.product.price
   end
 
-  def self.most_popular
-    self.order(:quantity)
-  end
 end 

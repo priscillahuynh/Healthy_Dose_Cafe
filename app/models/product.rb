@@ -16,4 +16,9 @@ class Product < ApplicationRecord
      self.category ? self.category.name : nil
   end
 
+  def self.top_three_products
+    items = self.joins(:line_items).group(:name).sum(:quantity)
+    items.sort_by {|k,v| v}.reverse.to_h.first(3)
+  end
+
 end
