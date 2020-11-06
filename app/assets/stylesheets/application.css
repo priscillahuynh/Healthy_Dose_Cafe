@@ -14,6 +14,18 @@
  *= require_self
  */
 
+ h1 { 
+   float: right;
+   padding-right: 170px;
+  font-weight: bold; 
+  font-size: 40pt;
+  line-height: 14pt; 
+  font-family: 'merienda'; 
+  font-variant: normal;
+  font-style: normal;
+}
+
+
  body {
   background-image: url("background.jpg");
   background-repeat: no-repeat;
@@ -22,30 +34,29 @@
 }
 
  .nav {
-    background-color: #faf5f9;
-    overflow: hidden;
-    padding: 15px;
-    
+      overflow: hidden;
+      padding: 30px; 
   }
   
   /* Style the links inside the navigation bar */
-  .topnav a {
-    float: left;
-    color: #f2f2f2;
+  .nav a {
+    float: right;
+    color: #black;
     text-align: center;
     padding: 14px 40px;
     text-decoration: none;
     font-size: 20px;
+    font-family: 'copperplate gothic light'
   }
   
   /* Change the color of links on hover */
-  .topnav a:hover {
+  .nav a:hover {
     background-color: #ddd;
     color: black;
   }
   
   /* Add a color to the active/current link */
-  .topnav a.active {
+  .nav a.active {
     background-color: #4CAF50;
     color: white;
   }
