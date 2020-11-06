@@ -1,15 +1,18 @@
-<h1><%= link_to @product.category_name, category_products_path(@product.category) %> </h1> 
-<h4><%= @product.name %> $<%= @product.price %></h4>
-<br>
-<%= flash[:notice] %>
-<% if @product.image.attached? %>
-   <%= image_tag url_for(@product.image), width: 300 %>
-<% end %>
+<h1><%= link_to @product.category_name, category_products_path(@product.category) %></h1> 
+<div class= "display">
+    
+    <%= @product.name %> $<%= @product.price %>
+    <br>
+    <%= flash[:notice] %>
+    <% if @product.image.attached? %>
+    <%= image_tag url_for(@product.image), width: 300 %>
+    <% end %>
 
-<p><%=button_to "Add to cart", line_items_path(product_id: @product)%></p>
-<br>
-<% if logged_in? && current_user.admin? %>
-    <%= button_to 'Edit product', edit_product_path(@product), method: :get %>
-    <%= button_to 'Delete product', product_path(@product), method: :delete%>
-<% end %>
+    <p><%=button_to "Add to cart", line_items_path(product_id: @product)%></p>
+    <br>
+    <% if logged_in? && current_user.admin? %>
+        <%= button_to 'Edit product', edit_product_path(@product), method: :get %>
+        <%= button_to 'Delete product', product_path(@product), method: :delete%>
+    <% end %>
+</div>
     

@@ -1,9 +1,11 @@
-<h3>Update <%= @category.name %> </h3>
-<br>
-<%= form_for @category do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<h1>Update <%= @category.name %> </h1>
+<div class= "display">
   <br>
-  <br>
-  <%= f.submit 'Update' %>
-<% end %>
+    <%= form_for @category do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <br>
+      <br>
+      <%= f.submit 'Update' %>
+    <% end %>
+</div>

@@ -15,44 +15,39 @@
  */
 
  .display {
-  position: fixed;
   margin: 100px auto;
-  position: absolute;
-  right: 150px;
+  position: static;
+  
  }
 
  .display a {
-  float: right;
+  position: static;
+  padding-left: 560px;
   color: #black;
-  text-align: center;
-  padding: 14px 40px;
+  text-align: left;
   text-decoration: none;
   font-size: 20px;
-  font-family: 'copperplate gothic light'
+  font-family: 'copperplate gothic light';
  }
 
  .display a:hover {
-  background-color: #ddd;
+  /* background-color: #ddd; */
   color: black;
+  font-weight: bold;
 }
 
 /* Add a color to the active/current link */
-.display a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
  h1 { 
-  float: right;
-  padding-right: 170px;
+  color: black;
+  position: fixed;
+  margin: 30px auto;
+  position: absolute;
+  left: 570px;
   font-weight: bold; 
   font-size: 40pt;
   line-height: 14pt; 
   font-family: 'merienda'; 
-  font-variant: normal;
-  font-style: normal;
 }
-
 
  body {
   background-image: url("background.jpg");
@@ -73,19 +68,21 @@
     text-align: center;
     padding: 14px 40px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 22px;
     font-family: 'copperplate gothic light'
   }
   
   /* Change the color of links on hover */
   .nav a:hover {
-    background-color: #ddd;
+    text-decoration: none;
     color: black;
+    font-weight: bold;
+    border-bottom: 1px solid black;
   }
   
   /* Add a color to the active/current link */
   .nav a.active {
-    background-color: #4CAF50;
+    /* background-color: #4CAF50; */
     color: white;
   }
 

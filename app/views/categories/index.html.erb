@@ -1,10 +1,8 @@
 <h1>Healthy Dose Cafe</h1>
-<%= flash[:notice] %>
-<br>
-<br>
 <div class= "display">
+<%= flash[:notice] %>
     <% @categories.each do |c|%>
-    <%= link_to c.name, category_products_path(c) %> <br>
+       <%= link_to c.name, category_products_path(c) %><br><br>
         <% if logged_in? && current_user.admin? %>
             <%= button_to "Edit Category Name", edit_category_path(c), method: :get %> </p> 
             <%= button_to "Delete Category", category_path(c), method: :delete, 

@@ -1,3 +1,5 @@
+<h1>Healthy Dose Cafe</h1>
+<div class= "display">
 <br>
 <h3><%= @order.created_at.strftime("%b-%d %l:%M %p")%> </h3>
 <br>
@@ -8,3 +10,4 @@
     <% end %> <br>
 <% end %>
 <h4>Total:  $<%= @order.total %> </h4>
+</div>
