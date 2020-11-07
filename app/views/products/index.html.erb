@@ -4,8 +4,8 @@
     <% @category.products.all.each do |p| %>
     <%= link_to p.name, product_path(p) %> $<%= p.price %> <br><br>
     <% end %>
-
+    <br>
     <% if logged_in? && current_user.admin? %>
-        <%= button_to 'Add new product', new_category_product_path(@category), method: :get %>
+        <%= link_to 'ADD NEW PRODUCT', new_category_product_path(@category), method: :get %>
     <% end %>
 </div>

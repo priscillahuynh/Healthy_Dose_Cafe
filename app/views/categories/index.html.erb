@@ -4,13 +4,14 @@
     <% @categories.each do |c|%>
        <%= link_to c.name, category_products_path(c) %><br><br>
         <% if logged_in? && current_user.admin? %>
-            <%= button_to "Edit Category Name", edit_category_path(c), method: :get %> </p> 
-            <%= button_to "Delete Category", category_path(c), method: :delete, 
-            data: {confirm: "Are you sure you want to delete this category and all of its products?" } %></p> <br>
+            <%= link_to "Edit Category Name", edit_category_path(c), method: :get, class:"button"%> <br>
+            <%= link_to "Delete Category", category_path(c), method: :delete,
+            data: {confirm: "Are you sure you want to delete this category and all of its products?" }, class:"button" %> <br>
+            <br>
         <% end %>
     <% end %>
     <br>
     <% if logged_in? && current_user.admin? %>
-        <%= button_to 'Add Category', new_category_path, method: :get %>
+        <%= link_to 'ADD CATEGORY', new_category_path, method: :get, class:"button"%>
     <% end %>
 </div>

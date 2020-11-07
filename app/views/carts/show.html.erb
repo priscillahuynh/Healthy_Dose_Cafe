@@ -1,5 +1,5 @@
 <h1>Healthy Dose Cafe</h1>
-<div class= "display">
+<div class= "product">
 <h3>Items In Your Cart</h3>
 
 <% if @cart.line_items.empty? %>
@@ -11,12 +11,12 @@
         <%= line_item.product.name %>: <%= line_item.quantity %> x $<%=line_item.product.price %> =   $<%= line_item.quantity * line_item.product.price %>
         <br>
         <% if line_item.special_request %>
-            Special Request: <%= line_item.special_request %>
+            Special Request: <%= line_item.special_request %><br>
         <% end %>
-        <br>
         <%= link_to " more ", add_line_item_path(:id => line_item), method: :post %>   | 
         <%= link_to " less ", reduce_line_item_path(:id => line_item), method: :post %>    |    
         <%= link_to "Remove from Cart", line_item_path(line_item), method: :delete %>
+        <br>
         <%= button_to 'Add request', edit_line_item_path(line_item), method: :get %>
         </li>
     </ul>

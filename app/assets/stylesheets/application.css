@@ -14,6 +14,18 @@
  *= require_self
  */
 
+ .logo {
+  color: black;
+  position: fixed;
+  margin: 100px auto;
+  position: absolute;
+  left: 500px;
+  font-weight: bold; 
+  font-size: 65pt;
+  line-height: 14pt; 
+  font-family: 'merienda';
+ }
+
  .show {
   background-color: black;
  }
@@ -27,7 +39,7 @@
  .display a {
   position: static;
   padding-left: 560px;
-  color: #black;
+  color: black;
   text-align: left;
   text-decoration: none;
   font-size: 20px;
@@ -68,7 +80,7 @@
   /* Style the links inside the navigation bar */
   .nav a {
     float: right;
-    color: #black;
+    color: black;
     text-align: center;
     padding: 14px 40px;
     text-decoration: none;
@@ -88,12 +100,21 @@
     width: 35%;
     height: 50%;
     margin: auto;
-    /* background-color: black; */
     position: static;
     padding-right: 250px;
     padding-top: 100px;
     float: right;
   }
+
+  .display .button {
+  position: static;
+  padding-left: 560px;
+  color: black;
+  text-align: left;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: 'copperplate gothic light';
+   }
 
   .login {
     width: 35%;
@@ -118,3 +139,15 @@
     font-size: 20px;
     font-family: 'copperplate gothic light'; 
   }  
+
+  .category_link a {
+      color: black;
+      margin: 30px auto;
+      position: static;
+      left: 565px;
+      font-weight: bold; 
+      font-size: 40pt;
+      line-height: 14pt; 
+      font-family: 'merienda'; 
+      text-decoration: none;
+  }

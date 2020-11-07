@@ -1,5 +1,5 @@
-<h1> Hello <%= @user.username.capitalize! %>! </h1>
-<div class= "display">
+<h1> Hello <%= @user.username%>! </h1>
+<div class= "product">
 <% if @user.admin? %>
     <h3>Top 3 most popular products: </h3>
     <ol> <% Product.top_three_products.each do |product, quantity|  %>
@@ -12,7 +12,6 @@
         <li><%= user.upcase %> has spent $<%= total %>. </li> <br>
         <% end%>
     </ol>
-
 <%else %>
     <h3>Order History</h3>
     <% @user.orders.each do |order| %>
