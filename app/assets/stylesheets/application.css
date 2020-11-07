@@ -52,6 +52,18 @@
   font-weight: bold;
 }
 
+.alert {
+  color: blue;
+  overflow: hidden;
+  padding: 15px auto;
+  position: absolute;
+  top: 200px;
+  left: 565px;
+  font-weight: bold; 
+  font-size: 20pt;
+  line-height: 20pt; 
+  font-family: 'merienda';
+}
 /* Add a color to the active/current link */
  h1 { 
   color: black;
@@ -134,11 +146,6 @@
     line-height: 14pt; 
     font-family: 'merienda'; 
   }
-
-  h3 {
-    font-size: 20px;
-    font-family: 'copperplate gothic light'; 
-  }  
 
   .category_link a {
       color: black;

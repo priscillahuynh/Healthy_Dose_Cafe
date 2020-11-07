@@ -1,6 +1,5 @@
 <h1><%=@category.name%> </h1> 
 <div class= "display">
-    <%= flash[:notice] %>
     <% @category.products.all.each do |p| %>
     <%= link_to p.name, product_path(p) %> $<%= p.price %> <br><br>
     <% end %>
@@ -8,4 +7,5 @@
     <% if logged_in? && current_user.admin? %>
         <%= link_to 'ADD NEW PRODUCT', new_category_product_path(@category), method: :get %>
     <% end %>
+    <%= flash[:notice] %>
 </div>

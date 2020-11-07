@@ -2,13 +2,16 @@
 
 <%= f.label :image %> 
 <%= f.file_field :image %>
-
+<br>
 <% if params[:category_id] %>
   <%= f.hidden_field :category_id %>
 <% else %>
-  <%= f.label :category_id, "Select A Category"%>
+<br>
+  <%= f.label :category_id, "Select A Category"%><br>
   <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
 <% end %>
+  <br>
+  <br>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <br>

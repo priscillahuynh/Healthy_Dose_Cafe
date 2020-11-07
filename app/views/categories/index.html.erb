@@ -1,6 +1,8 @@
 <h1>Healthy Dose Cafe</h1>
+<div class="alert"><%= flash[:alert] %></div>
+<br>
+<br>
 <div class= "display">
-<%= flash[:notice] %>
     <% @categories.each do |c|%>
        <%= link_to c.name, category_products_path(c) %><br><br>
         <% if logged_in? && current_user.admin? %>
@@ -14,4 +16,5 @@
     <% if logged_in? && current_user.admin? %>
         <%= link_to 'ADD CATEGORY', new_category_path, method: :get, class:"button"%>
     <% end %>
+    <%= flash[:notice] %>
 </div>

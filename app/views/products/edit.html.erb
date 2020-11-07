@@ -1,8 +1,8 @@
-<h1>Healthy Dose Cafe</h1>
-<div class= "display">
-<h3>Update <%= @product.name %></h3>
+<h1>Update <%= @product.name %></h1>
+<h3><%= render partial: '/layouts/errors', locals: {object: @product} %></h3>
+<div class= "product">
 <br>
 <br>
-<%= render partial: '/layouts/errors', locals: {object: @product} %>
+
 <%= render partial: '/layouts/products'%>
 </div>
