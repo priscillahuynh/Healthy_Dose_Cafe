@@ -14,6 +14,10 @@
  *= require_self
  */
 
+ .show {
+  background-color: black;
+ }
+
  .display {
   margin: 100px auto;
   position: static;
@@ -42,7 +46,7 @@
   position: fixed;
   margin: 30px auto;
   position: absolute;
-  left: 570px;
+  left: 565px;
   font-weight: bold; 
   font-size: 40pt;
   line-height: 14pt; 
@@ -79,10 +83,19 @@
     font-weight: bold;
     border-bottom: 1px solid black;
   }
-  
-  /* Add a color to the active/current link */
-  .nav a.active {
-    /* background-color: #4CAF50; */
-    color: white;
+
+  .product {
+    width: 35%;
+    height: 50%;
+    margin: auto;
+    /* background-color: black; */
+    position: static;
+    padding-right: 250px;
+    padding-top: 100px;
+    float: right;
   }
 
+  h3 {
+    font-size: 20px;
+    font-family: 'copperplate gothic light'; 
+  }  
