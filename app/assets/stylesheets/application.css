@@ -95,6 +95,25 @@
     float: right;
   }
 
+  .login {
+    width: 35%;
+    height: 50%;
+    margin: auto;
+    position: static;
+    padding-right: 180px;
+    padding-top: 50px;
+    float: right;
+  }
+
+  .login h1 {
+    color: black;
+    position: static;
+    font-weight: bold; 
+    font-size: 40pt;
+    line-height: 14pt; 
+    font-family: 'merienda'; 
+  }
+
   h3 {
     font-size: 20px;
     font-family: 'copperplate gothic light'; 
