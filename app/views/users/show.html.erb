@@ -13,7 +13,9 @@
         <% end%>
     </ol>
 
+    <ul>
     <%= link_to 'View Recent Orders', orders_path %>
+    </ul>
 <%else %>
     <h3>Order History</h3>
     <% @user.orders.each do |order| %>
