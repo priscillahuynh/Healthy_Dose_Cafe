@@ -53,13 +53,12 @@
 }
 
 .alert {
-  color: blue;
+  color: #7dabf5;
   overflow: hidden;
   padding: 15px auto;
   position: absolute;
   top: 190px;
   left: 565px;
-  /* font-weight: bold;  */
   font-size: 20pt;
   line-height: 25pt; 
   font-family: 'merienda';

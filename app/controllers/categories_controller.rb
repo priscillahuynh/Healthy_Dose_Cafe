@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
         @category = Category.new(params.require(:category).permit(:name))
         @category.name.titlecase
         if @category.save 
-            redirect_to categories_path, flash: { notice: "Category successfully added" }
+            redirect_to categories_path, flash: { alert: "Category successfully added" }
         else 
             render :new 
         end
@@ -27,12 +27,12 @@ class CategoriesController < ApplicationController
 
     def update
         @category.update(params.require(:category).permit(:name))
-        redirect_to categories_path, flash: { notice: "Category name successfully updated" }
+        redirect_to categories_path, flash: { alert: "Category name successfully updated" }
     end
 
     def destroy
         @category.destroy
-        redirect_to categories_path , flash: { notice: "Category successfully deleted" }
+        redirect_to categories_path , flash: { alert: "Category deleted" }
     end
 
     private

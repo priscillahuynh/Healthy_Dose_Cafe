@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
         cart = Cart.new(user_id: current_user.id)
         cart.save
         session[:cart_id] = cart.id
-        redirect_to '/menu' , flash: { alert: "Order completed. Come again soon!" }
+        redirect_to '/menu' , flash: {alert: "Order completed. Come again soon!" }
     end
 
 end

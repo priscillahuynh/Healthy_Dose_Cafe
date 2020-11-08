@@ -10,7 +10,7 @@ class LineItemsController < ApplicationController
             @line_item = current_cart.line_items.build(product_id: chosen_product.id, cart_id: current_cart.id)
             @line_item.save
         end
-            redirect_to product_path(chosen_product), flash: { notice: "Product added to cart" }
+            redirect_to product_path(chosen_product), flash: { alert: "Product added to cart" }
     end
 
     def edit

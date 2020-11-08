@@ -15,7 +15,7 @@ Specs:
     Product - must have a name, category, and price
  [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the 
     working feature e.g. User.most_recipes URL: /users/most_recipes) 
-*******
+    Admin can view orders by most recent, view top 3 products, and top 3 highest paying customers
  [x] Include signup (how e.g. Devise) 
  [x] Include login (how e.g. Devise)
  [x] Include logout (how e.g. Devise)
