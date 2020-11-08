@@ -3,6 +3,7 @@ class User < ApplicationRecord
     has_one :cart
 
     validates :username, uniqueness: true, presence: true
+    validates :password, length: {minimum: 8}
     has_secure_password
 
     def self.create_by_facebook(auth)
