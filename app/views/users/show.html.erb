@@ -12,6 +12,8 @@
         <li><%= user.upcase %> has spent $<%= total %>. </li> <br>
         <% end%>
     </ol>
+
+    <%= link_to 'View Recent Orders', orders_path %>
 <%else %>
     <h3>Order History</h3>
     <% @user.orders.each do |order| %>
