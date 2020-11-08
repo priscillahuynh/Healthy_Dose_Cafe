@@ -1,4 +1,8 @@
 class ProductsController < ApplicationController
+    before_action :find_product, only: [:show, :edit, :update, :destroy]
+    before_action :find_category, only: [:index]
+
+
     def new
         if find_category
             @product = @category.products.build
@@ -14,41 +18,36 @@ class ProductsController < ApplicationController
         if @product.save
             @product.image.purge
             @product.image.attach(params[:product][:image])
-        redirect_to category_products_path(@category), flash: { notice: "Product successfully added" }
+        redirect_to category_products_path(@category), flash: { alert: "Product successfully added" }
         else 
             render :new
         end
     end
 
     def index
-        find_category
     end
 
-    def show
-        find_product    
+    def show   
     end
 
     def edit
-        find_product
     end
 
     def update 
-        find_product
         if @product.update(product_params)
             @product.image.purge
             @product.image.attach(params[:product][:image])
             @category = @product.category_id
-            redirect_to category_products_path(@category), flash: { notice: "Product successfully updated" }
+            redirect_to category_products_path(@category), flash: { alert: "Product successfully updated" }
         else 
             render  :edit
         end
     end
 
     def destroy
-        find_product
         @category = @product.category_id
         @product.destroy
-        redirect_to category_products_path(@category), flash: { notice: "Product successfully deleted" }
+        redirect_to category_products_path(@category), flash: { alert: "Product successfully deleted" }
     end
 
     private

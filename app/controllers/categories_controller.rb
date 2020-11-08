@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+    before_action :find_category, only: [:show, :edit, :update, :destroy]
+
     def new
         @category = Category.new
     end
@@ -18,21 +20,17 @@ class CategoriesController < ApplicationController
     end
 
     def show
-        find_category
     end
     
     def edit
-        find_category
     end
 
     def update
-        find_category
         @category.update(params.require(:category).permit(:name))
         redirect_to categories_path, flash: { notice: "Category name successfully updated" }
     end
 
     def destroy
-        find_category
         @category.destroy
         redirect_to categories_path , flash: { notice: "Category successfully deleted" }
     end
