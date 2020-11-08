@@ -57,11 +57,11 @@
   overflow: hidden;
   padding: 15px auto;
   position: absolute;
-  top: 200px;
+  top: 190px;
   left: 565px;
-  font-weight: bold; 
+  /* font-weight: bold;  */
   font-size: 20pt;
-  line-height: 20pt; 
+  line-height: 25pt; 
   font-family: 'merienda';
 }
 /* Add a color to the active/current link */
