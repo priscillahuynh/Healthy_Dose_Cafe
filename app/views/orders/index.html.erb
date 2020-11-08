@@ -1,0 +1,5 @@
+<div class="display">
+<% @orders.each do |order| %>
+       <%= link_to order.created_at.strftime("%b-%d %l:%M %p"), order_path(order) %>   |   Total $<%= order.total %> <br>
+<% end %>
+</div>

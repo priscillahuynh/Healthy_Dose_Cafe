@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
     end
 
     def index
-        @orders = Order.all
+        @orders = Order.all.most_recent
     end
 
     def show
