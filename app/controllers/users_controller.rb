@@ -17,7 +17,16 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find_by_id(params[:id])
+        if logged_in?
+            @user = User.find_by_id(params[:id])
+                if @user.id == current_user.id
+                    render :show
+                else 
+                    redirect_to user_path(current_user.id)
+                end
+        else
+            redirect_to '/'
+        end
     end
 
     private
