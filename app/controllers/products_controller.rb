@@ -33,6 +33,10 @@ class ProductsController < ApplicationController
     def edit
     end
 
+    def expensive
+        @product = Product.all.most_expensive_breakfast
+    end
+
     def update 
         if @product.update(product_params)
             @product.image.purge

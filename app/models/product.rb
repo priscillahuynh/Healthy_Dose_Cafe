@@ -8,6 +8,8 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :price, presence: true, numericality: true
 
+  scope :most_expensive_breakfast, -> {where(category_id: 4).order('price desc').first}
+
   def category_name=(name)
     self.category = Category.find_or_create_by(name: name)
   end

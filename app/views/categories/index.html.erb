@@ -3,6 +3,7 @@
 <br>
 <br>
 <div class= "display">
+    <%= link_to 'Most Expensive Breakfast', most_expensive_path %> <br><br>
     <% @categories.each do |c|%>
        <%= link_to c.name, category_products_path(c) %><br><br>
         <% if logged_in? && current_user.admin? %>

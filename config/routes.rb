@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   post 'line_items/:id/add' => "line_items#add_quantity", as: "add_line_item"
   post 'line_items/:id/reduce' => "line_items#reduce_quantity", as: "reduce_line_item"
 
+  get '/most_expensive' => 'products#expensive'
+
   resources :products
   resources :categories, :path => "menu" do
     resources :products, only: [:new, :show, :index, :destroy]
